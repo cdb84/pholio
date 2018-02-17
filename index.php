@@ -17,7 +17,7 @@ if ($result->num_rows > 0) {
 
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml">
-<link rel="stylesheet" type="text/css" href="/style.css">
+<link rel="stylesheet" type="text/css" href="style.css">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>photos</title>

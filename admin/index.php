@@ -22,7 +22,7 @@ if ($result->num_rows > 0) {
 ?>
 <html>
 <head>
-  <link rel="stylesheet" type="text/css" href="/style.css">
+  <link rel="stylesheet" type="text/css" href="../style.css">
   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
   <link rel="icon" href="/favicon.ico" type="image/x-icon" />
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
