@@ -1,6 +1,6 @@
 AuthType Basic
-AuthName "Restricted Files"
+AuthName "AUTHNAME"
 # (Following line optional)
 AuthBasicProvider file
-AuthUserFile "/var/www/passwd/dev.passwords"
+AuthUserFile "PATH TO PASSWD"
 Require valid-user
