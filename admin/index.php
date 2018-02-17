@@ -1,25 +1,24 @@
 <?php
 include "../connection.php";
 /*Initialization of preference schema*/
-$user_schema = "dev";
-$use_captions = 0;
+$user_schema      = "dev";
+$use_captions     = 0;
 $use_descriptions = 0;
-$center_align = 0;
-$force_height = 0;
-$title = "";
-$cr = "";
-$result = $conn->query(
-    "SELECT * FROM pref_schema WHERE user = '".$user_schema."'");
-if ($result->num_rows > 0){
-    while ($row = $result->fetch_assoc()){
-        $title = $row[site_title];
-        $cr = $row[copyright];
-        $use_captions = $row[use_captions];
-        $use_descriptions = $row[use_descriptions];
-        $center_align = $row[center_align_captions];
-        $force_height = $row[force_height];
-    }
-}
+$center_align     = 0;
+$force_height     = 0;
+$title            = "";
+$cr               = "";
+$result           = $conn->query("SELECT * FROM pref_schema WHERE user = '" . $user_schema . "'");
+if ($result->num_rows > 0) {
+  while ($row = $result->fetch_assoc()) {
+    $title            = $row[site_title];
+    $cr               = $row[copyright];
+    $use_captions     = $row[use_captions];
+    $use_descriptions = $row[use_descriptions];
+    $center_align     = $row[center_align_captions];
+    $force_height     = $row[force_height];
+  } //$row = $result->fetch_assoc()
+} //$result->num_rows > 0
 ?>
 <html>
 <head>
@@ -46,40 +45,48 @@ if ($result->num_rows > 0){
       <form enctype="multipart/form-data" action="/cgi-bin/update_schema.php" method="POST">
         <tr>
           <td>Use Image Captions?</td>
-          <td><input type="checkbox" name="use_captions" value="1"
-<?php
-    if ($use_captions) { echo "checked"; }?>></td>
+          <td><input type="checkbox" name="use_captions" value="1"<?php
+if ($use_captions) {
+  echo "checked";
+} //$use_captions
+?>></td>
         </tr>
         <tr>
           <td>Use Album Descriptions?</td>
-          <td><input type="checkbox" name="use_descriptions" value="1"
-<?php
-    if ($use_descriptions) { echo "checked"; }?>></td>
+          <td><input type="checkbox" name="use_descriptions" value="1"<?php
+if ($use_descriptions) {
+  echo "checked";
+} //$use_descriptions
+?>></td>
         </tr>
         <tr>
           <td>Center Align Image Captions?</td>
-          <td><input type="checkbox" name="center-align" value="1"
-<?php
-    if($center_align) { echo "checked"; }?>></td>
+          <td><input type="checkbox" name="center-align" value="1"<?php
+if ($center_align) {
+  echo "checked";
+} //$center_align
+?>></td>
         </tr>
 		<tr>
 		  <td>Force Uniform Thumbnail Size?</td>
 		  <!-- remember to include php code here for checkbox -->
-		  <td><input type="checkbox" name="force-height" value="1"
-<?php
-    if($force_height) {echo "checked";} ?>></td>
+		  <td><input type="checkbox" name="force-height" value="1"<?php
+if ($force_height) {
+  echo "checked";
+} //$force_height
+?>></td>
 		</td>
         <tr>
           <td>Website/Portfolio Title Information</td>
-          <td><input type="text" name="title" value=
-<?php
-    echo '"'.$title.'"';?>></td>
+          <td><input type="text" name="title" value=<?php
+echo '"' . $title . '"';
+?>></td>
         </tr>
         <tr>
           <td>Copyright Infomation</td>
-          <td><input type="text" name="copyright" value=
-<?php
-    echo '"'.$cr.'"'; ?>></td>
+          <td><input type="text" name="copyright" value=<?php
+echo '"' . $cr . '"';
+?>></td>
         </tr>
         <tr>
           <td>Website Icon</td>
@@ -127,16 +134,16 @@ if ($result->num_rows > 0){
           <td>Indicate Album:</td>
           <!---<td><input type="text" size="35" name="destination" /></td>--->
           <td>
-            <select name="up_des">
-<?php
-    $sql = "SELECT * FROM `albums`";
-    if($res = $conn->query($sql)){
-        while($row = mysqli_fetch_row($res)){
-            echo "\n              <option value=".$row[0].">".$row[0]."</option>";
-        }
-    } else {
-        echo "Error:" .$sql. "<br>".$conn->error;
-    }
+            <select name="up_des"><?php
+$sql = "SELECT * FROM `albums`";
+if ($res = $conn->query($sql)) {
+  while ($row = mysqli_fetch_row($res)) {
+    echo "\n              <option value=" . $row[0] . ">" . $row[0] . "</option>";
+  } //$row = mysqli_fetch_row($res)
+} //$res = $conn->query($sql)
+else {
+  echo "Error:" . $sql . "<br>" . $conn->error;
+}
 ?>
             </select>
           </td>
@@ -171,16 +178,16 @@ if ($result->num_rows > 0){
       <form action="/cgi-bin/delete_description.php" method="POST">
         <tr>
           <select name="del_des">
-            <option value="none"> </option>
-<?php
-    $sql = "SELECT * FROM `albums`";
-    if($res = $conn->query($sql)){
-        while($row = mysqli_fetch_row($res)){
-            echo "\n            <option value=".$row[0].">".$row[0]."</option>";
-        }
-    } else {
-        echo "Error:" .$sql. "<br>".$conn->error;
-    }
+            <option value="none"> </option><?php
+$sql = "SELECT * FROM `albums`";
+if ($res = $conn->query($sql)) {
+  while ($row = mysqli_fetch_row($res)) {
+    echo "\n            <option value=" . $row[0] . ">" . $row[0] . "</option>";
+  } //$row = mysqli_fetch_row($res)
+} //$res = $conn->query($sql)
+else {
+  echo "Error:" . $sql . "<br>" . $conn->error;
+}
 ?>        
           </select>
         </tr>
@@ -196,17 +203,16 @@ if ($result->num_rows > 0){
       <form action="/cgi-bin/delete_caption.php" method="POST">
         <tr>
           <select name="del_cap">
-			<option value="none"> </option>
-<?php
-        $sql = "SELECT * FROM `images`";
-        if($res = $conn->query($sql)){
-            while($row = mysqli_fetch_row($res)){
-                echo "\n            <option value=".$row[0].
-                    ">".$row[0].", ".$row[1].", ".$row[2]."</option>";
-            }
-        }else{
-            echo "Error: ".$sql."<br>".$conn->error;
-        }
+			<option value="none"> </option><?php
+$sql = "SELECT * FROM `images`";
+if ($res = $conn->query($sql)) {
+  while ($row = mysqli_fetch_row($res)) {
+    echo "\n            <option value=" . $row[0] . ">" . $row[0] . ", " . $row[1] . ", " . $row[2] . "</option>";
+  } //$row = mysqli_fetch_row($res)
+} //$res = $conn->query($sql)
+else {
+  echo "Error: " . $sql . "<br>" . $conn->error;
+}
 ?>
             
           </select>
