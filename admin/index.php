@@ -132,7 +132,6 @@ echo '"' . $cr . '"';
         </tr>
         <tr>
           <td>Indicate Album:</td>
-          <!---<td><input type="text" size="35" name="destination" /></td>--->
           <td>
             <select name="up_des"><?php
 $sql = "SELECT * FROM `albums`";
