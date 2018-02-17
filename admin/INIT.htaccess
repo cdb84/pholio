@@ -1,0 +1,6 @@
+AuthType Basic
+AuthName "AUTHNAME"
+# (Following line optional)
+AuthBasicProvider file
+AuthUserFile "PATH TO PASSWD"
+Require valid-user
