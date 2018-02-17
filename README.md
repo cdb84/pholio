@@ -7,4 +7,5 @@ A PHP system for managing photography portfolios.
 1. Edit INIT.htaccess of the admin/ directory to reflect the proper passwd file, then rename INIT.htaccess to just .htaccess
 ## Dependencies
 1. PHP 5
-2. MySQLi 
+1. MySQLi 
+1. I would recommend mcrypt PHP module if you're going to be useing PHPMyAdmin
