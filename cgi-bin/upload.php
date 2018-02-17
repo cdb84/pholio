@@ -18,12 +18,19 @@ if (move_uploaded_file($_FILES['uploadedfile']['tmp_name'], $target_path)) {
   $trim_name        = mysqli_real_escape_string($conn, $trim_name);
   $caption          = mysqli_real_escape_string($conn, $caption);
   $destination_path = mysqli_real_escape_string($conn, $destination_path);
-  $conn->query('INSERT INTO images (img, caption,album) VALUES ("' . $trim_name . '", "' . $caption . '","' . $destination_path . '")');
-  copy($target_path, $thumbnail_path);
-  chdir("../" . $destination_path . "/thumbnails/");
-  shell_exec("convert " . $trim_name . " -resize " . $resize_coef . "% " . $trim_name);
-  echo "The file " . basename($_FILES['uploadedfile']['name']) . " has been uploaded, redirecting you back to panel...";
-  header("refresh:2;url=/../admin/index.php");
+  $sql = 'INSERT INTO images (img, caption,album) VALUES ("' . $trim_name . '", "' . $caption . '","' . $destination_path . '")';
+  if ($conn->query($sql)){
+    copy($target_path, $thumbnail_path);
+    chdir("../" . $destination_path . "/thumbnails/");
+    shell_exec("convert " . $trim_name . " -resize " . $resize_coef . "% " . $trim_name);
+    echo "The file " . basename($_FILES['uploadedfile']['name']) . " has been uploaded, redirecting you back to panel...";
+    header("refresh:2;url=/../admin/index.php");
+  } //$conn->query($sql)
+  else {
+    echo "There was a SQL error: \n"
+    echo $conn->error . "<br>";
+    echo $sql;
+  }
 } //move_uploaded_file($_FILES['uploadedfile']['tmp_name'], $target_path)
 else {
   echo "There was an error uploading the file.";
