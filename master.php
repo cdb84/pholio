@@ -17,12 +17,12 @@ if ($result->num_rows > 0) {
 ?>
   <table>
     <tr>
-      <th><h3>photo</h3></th>
-      <?php
+      <th><h3>photo</h3></th><?php
 if ($use_captions) {
   echo "<th><h3>caption</h3></th>";
 } //$use_captions
 ?>
+
     </tr>
     <tr>
       <th><h6>Click to enlarge</h6></th>
@@ -63,25 +63,20 @@ foreach ($dirFiles as $file) {
   $file_path = $folder_path . $file;
   $extension = strtolower(pathinfo($file, PATHINFO_EXTENSION));
 ?>  <tr>
-<!-- Do the thing here!-->
-      <td><a href=
-<?php
+      <td><a href=<?php
 echo '"img/' . $file_path. '"';
-?>><img src=
-<?php
+?>><img src=<?php
 echo '"thumbnails/' . $file_path . '" ';
 if ($force_height) {
   echo "height=250";
 } //$force_height
-?> /></a></td>
-<?php
+?> /></a></td><?php
 $sql    = "SELECT * FROM images WHERE img = '" . $file_path . "'";
 $result = $conn->query($sql);
 //this just prints based on the query results
 if ($result->num_rows > 0) {
   while ($use_captions && $row = $result->fetch_assoc()) {
-?>
-        
+?>        
       <td><p class="pcell"<?php
   if ($center_align) {
     echo 'align="center"';
