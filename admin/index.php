@@ -1,4 +1,6 @@
 <?php
+/*Connor Berry 2018
+  GNU GPL 3 */
 include "../connection.php";
 /*Initialization of preference schema*/
 $user_schema      = "dev";

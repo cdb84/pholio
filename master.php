@@ -1,7 +1,8 @@
 <?php
 include "../header.php";
 include "../connection.php";
-
+/*Connor Berry 2018
+  GNU GPL 3 */
 $result       = $conn->query("SELECT * FROM pref_schema WHERE user = 'dev'");
 $use_captions = 0;
 $center_align = 0;

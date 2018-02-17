@@ -2,6 +2,8 @@
 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 <link rel="icon" href="/favicon.ico" type="image/x-icon" />
 <?php
+/*Connor Berry 2018
+  GNU GPL 3 */
 include "connection.php";
 $result           = $conn->query("SELECT * FROM pref_schema WHERE user = 'dev'");
 $use_descriptions = 0;
