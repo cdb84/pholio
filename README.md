@@ -5,3 +5,6 @@ A PHP system for managing photography portfolios.
 1. Edit connection.php to reflect your database configuration.
 1. Ensure that the webserver can edit the filestructure of the root directory for this application.
 1. Edit .htaccess of the admin/ directory to reflect the proper passwd file.
+## Dependencies
+1. PHP 5
+2. MySQLi 
