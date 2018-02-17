@@ -25,7 +25,7 @@ function rrmdir($dir)
 $dir = $_POST["del_des"];
 if (empty($dir) || $dir == "none") {
   echo 'Empty album name, aborting...';
-  header("refresh:2;url=/admin/index.php");
+  header("refresh:2;url=/../admin/index.php");
   exit();
 } //empty($dir) || $dir == "none"
 $dir = mysqli_real_escape_string($conn, $dir);

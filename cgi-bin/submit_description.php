@@ -24,7 +24,7 @@ mkdir("../" . $dir . "/thumbnails", 0777);
 copy("../copy-bin/index.php", "../" . $dir . "/index.php");
 if ($conn->query($sql)) {
   echo 'Submission sucessful. Redirecting...';
-  header("refresh:2;url=/admin/index.php");
+  header("refresh:2;url=/../admin/index.php");
 } //$conn->query($sql)
 else {
   echo "A SQL error has occurred. Please contact the webmaster.<br>";

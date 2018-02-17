@@ -23,7 +23,7 @@ if (move_uploaded_file($_FILES['uploadedfile']['tmp_name'], $target_path)) {
   chdir("../" . $destination_path . "/thumbnails/");
   shell_exec("convert " . $trim_name . " -resize " . $resize_coef . "% " . $trim_name);
   echo "The file " . basename($_FILES['uploadedfile']['name']) . " has been uploaded, redirecting you back to panel...";
-  header("refresh:2;url=/admin/index.php");
+  header("refresh:2;url=/../admin/index.php");
 } //move_uploaded_file($_FILES['uploadedfile']['tmp_name'], $target_path)
 else {
   echo "There was an error uploading the file.";

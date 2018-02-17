@@ -23,7 +23,7 @@ if ($conn->query($sql)) {
     echo "Favicon changed. <br>";
   } //isset($_FILES['icon']['name']) && move_uploaded_file($_FILES['icon']['tmp_name'], $target_path)
   echo 'Submission sucessful. Redirecting...';
-  header("refresh:2;url=/admin/index.php");
+  header("refresh:2;url=/../admin/index.php");
 } //$conn->query($sql)
 else {
   echo "A SQL error has occurred. Please contact the webmaster.<br>";
