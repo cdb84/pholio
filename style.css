@@ -1,0 +1,66 @@
+*{
+  font-family:courier;
+}
+.header{
+  margin:0 auto;
+  width:100%;
+}
+div.header div.back{
+  float:left;
+}
+div.header div.cwd{
+  float:right;
+}
+div.process{
+  text-align: center
+}
+.pcell {
+  padding-left: 1cm;
+}
+table { 
+  border-collapse: collapse; 
+  margin-left: auto;
+  margin-right: auto;
+  width: 75%;
+  empty-cells: show;
+  #text-align: center;
+  #border: 1px solid black;
+  #background: gray;
+}
+div.admin{
+  margin-left: 1cm;
+  margin-right: 1cm;
+}
+table.formclass{
+  margin-left:0px;
+  text-align: left;
+}
+table.mega-list{
+  border-spacing: 0 1px;
+  border-color: gray;
+  margin-left:0px;
+}
+table.mega-list tr td{
+  padding-bottom: 3px;
+}
+table.albums{
+  border-collapse: collapse; 
+  border-spacing:0 5px; 
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+th h3{
+  text-decoration:underline;
+}
+th h6{
+  text-decoration:none;
+}
+td{
+  padding-bottom: 1cm;
+}
+td a img{
+  display: block;
+  margin: auto;
+  #height: 250 px;
+}
