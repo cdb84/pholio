@@ -1,3 +1,3 @@
 <?php
-$conn = new mysqli('localhost', 'dev', 'iwilldevyoulater', 'dev');
+$conn = new mysqli('DB_HOST', 'DB_USER', 'DB_PASSWORD', 'DATABASE');
 ?>
