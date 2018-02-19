@@ -11,6 +11,7 @@ $force_height     = 0;
 $title            = "";
 $cr               = "";
 $result           = $conn->query("SELECT * FROM pref_schema WHERE user = '" . $user_schema . "'");
+/*Fetch user's preferences and store in discrete variables*/
 if ($result->num_rows > 0) {
   while ($row = $result->fetch_assoc()) {
     $title            = $row[site_title];
@@ -136,6 +137,7 @@ echo '"' . $cr . '"';
           <td>Indicate Album:</td>
           <td>
             <select name="up_des"><?php
+/*Generating a list of albums for the user to choose from*/
 $sql = "SELECT * FROM `albums`";
 if ($res = $conn->query($sql)) {
   while ($row = mysqli_fetch_row($res)) {
@@ -180,6 +182,7 @@ else {
         <tr>
           <select name="del_des">
             <option value="none"> </option><?php
+/*Generating a list of albums to delete from*/    
 $sql = "SELECT * FROM `albums`";
 if ($res = $conn->query($sql)) {
   while ($row = mysqli_fetch_row($res)) {
@@ -205,6 +208,7 @@ else {
         <tr>
           <select name="del_cap">
 			<option value="none"> </option><?php
+/*Here, a list of photos. All of these are previous submissions by user*/
 $sql = "SELECT * FROM `images`";
 if ($res = $conn->query($sql)) {
   while ($row = mysqli_fetch_row($res)) {
