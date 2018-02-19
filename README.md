@@ -9,5 +9,5 @@ A PHP system for managing photography portfolios.
 1. PHP 5
 1. MySQLi 
 1. The `convert` utility from ImageMagick, available to be executed from the shell by the webserver
-1. I would recommend mcrypt PHP module if you're going to be useing PHPMyAdmin
+1. I would recommend mcrypt PHP module if you're going to be using PHPMyAdmin
 1. It may be necessary to change your PHP.ini and/or PHP conf to allow for uploads greater than 8 megabytes.
