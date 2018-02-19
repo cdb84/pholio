@@ -5,6 +5,7 @@
 /*Connor Berry 2018
   GNU GPL 3 */
 include "connection.php";
+/*Build the user's preferences schema*/
 $result           = $conn->query("SELECT * FROM pref_schema WHERE user = 'dev'");
 $use_descriptions = 0;
 $title            = "";
@@ -47,21 +48,28 @@ if ($use_descriptions) {
 ?>
 	</tr>
 <?php
-
+/*Beginning looking in our cwd for directories*/
 $dir   = '.';
 $files = scandir($dir);
 foreach ($files as $file) {
   if (!(strpos($file, ".")) && !($file == "." || $file == "..")) {
+    /*Upon finding a directory, check it against the DB for info, i.e. to see
+     *if the user wants it to be viewable by the public
+     */
     $sql    = "SELECT * FROM albums WHERE directory = '" . $file . "' AND publicly_viewable='1'";
     $result = $conn->query($sql);
+    /*If we get a return on this directory from the DB*/
     if ($result->num_rows > 0) {
+      /*Generate HTML relating to the album*/
       echo "    <tr>\n";
       echo "      <td><a href='" . $file . "'>" . $file . "</a></td>\n";
+      /*In particular, be mindful of if we want album descriptions or not*/
       while ($use_descriptions && $row = $result->fetch_assoc()) {
         echo "      <td><p>" . $row[description] . "</p></td>\n";
       } //$use_descriptions && $row = $result->fetch_assoc()
       echo "    </tr>\n";
     } //$result->num_rows > 0
+    /*Opted not to display error info at all here do to security by obscurity*/
   } //!(strpos($file, ".")) && !($file == "." || $file == "..")
 } //$files as $file
 ?>
