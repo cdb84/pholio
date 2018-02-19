@@ -63,13 +63,15 @@ foreach ($files as $file) {
       /*Generate HTML relating to the album*/
       echo "    <tr>\n";
       echo "      <td><a href='" . $file . "'>" . $file . "</a></td>\n";
-      /*In particular, be mindful of if we want album descriptions or not*/
+      /*In particular, be mindful of if we want album descriptions or not, and
+       *if the directory exists an album in the DB (else it is a utile folder)
+       */
       while ($use_descriptions && $row = $result->fetch_assoc()) {
         echo "      <td><p>" . $row[description] . "</p></td>\n";
       } //$use_descriptions && $row = $result->fetch_assoc()
       echo "    </tr>\n";
     } //$result->num_rows > 0
-    /*Opted not to display error info at all here do to security by obscurity*/
+    /*Opted not to display error info at all here due to security by obscurity*/
   } //!(strpos($file, ".")) && !($file == "." || $file == "..")
 } //$files as $file
 ?>
