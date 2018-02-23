@@ -51,7 +51,8 @@ if ($use_descriptions) {
 /*Beginning looking in our cwd for directories*/
 $dir   = '.';
 $files = scandir($dir);
-foreach ($files as $file) {
+foreach ($files as $file){
+  /*Ensuring that '.' is not the first char of directory, and directory isn't an rel-link*/
   if (!(strpos($file, ".")) && !($file == "." || $file == "..")) {
     /*Upon finding a directory, check it against the DB for info, i.e. to see
      *if the user wants it to be viewable by the public
