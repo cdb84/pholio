@@ -54,8 +54,9 @@ $files = scandir($dir);
 foreach ($files as $file){
   /*Ensuring that '.' is not the first char of directory, and directory isn't an rel-link*/
   if (!(strpos($file, ".")) && !($file == "." || $file == "..")) {
-    /*Upon finding a directory, check it against the DB for info, i.e. to see
-     *if the user wants it to be viewable by the public
+    /*
+     * Upon finding a directory, check it against the DB for info, i.e. to see
+     * if the user wants it to be viewable by the public
      */
     $sql    = "SELECT * FROM albums WHERE directory = '" . $file . "' AND publicly_viewable='1'";
     $result = $conn->query($sql);
@@ -64,8 +65,9 @@ foreach ($files as $file){
       /*Generate HTML relating to the album*/
       echo "    <tr>\n";
       echo "      <td><a href='" . $file . "'>" . $file . "</a></td>\n";
-      /*In particular, be mindful of if we want album descriptions or not, and
-       *if the directory exists an album in the DB (else it is a utile folder)
+      /*
+       * In particular, be mindful of if we want album descriptions or not, and
+       * if the directory exists an album in the DB (else it is a utile folder)
        */
       while ($use_descriptions && $row = $result->fetch_assoc()) {
         echo "      <td><p>" . $row[description] . "</p></td>\n";
