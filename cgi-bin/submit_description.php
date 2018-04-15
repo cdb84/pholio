@@ -7,7 +7,7 @@ ini_set('display_errors', 1);
 include "../connection.php";
 if (empty($_POST["directory"])) {
   echo 'Empty album name, aborting...';
-  header("refresh:2;url=/admin/index.php");
+  header("refresh:2;url=../admin/index.php");
   exit();
 } //empty($_POST["directory"])
 $dir = $_POST["directory"];
