@@ -2,7 +2,7 @@
 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 <link rel="icon" href="/favicon.ico" type="image/x-icon" />
 <?php
-/*Connor Berry 2018
+/*Copyright (C) 2018 Connor Berry
   GNU GPL 3 */
 include "connection.php";
 /*Build the user's preferences schema*/
